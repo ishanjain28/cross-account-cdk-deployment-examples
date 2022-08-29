@@ -1,0 +1,44 @@
+devops:
+  repo:
+    owner: 'repo-owner'
+    repo: 'repo-name'
+    branch: 'master'
+    # Path to this project if project is a monorepo.
+    # otherwise you'll have to make some changes and maybe remove this field completely? 
+    path: '<path-to-_this_-project>'
+  # cicd account needs github token because it's required by webhook-filtered-pipeline
+  # you can use codestar arn if it's not a mono repo
+  githubTokenArn: '<github-token-arn>'
+  env:
+    account: 'account-id'
+    region: 'region'
+
+dev:
+  env:
+    account: 'account-id'
+    region: 'region'
+  codestarConnectionArn: '<codestar-arn>'
+  repo:
+    owner: 'repo-owner'
+    repo: 'repo-name'
+    branch: 'master'
+
+staging:
+  env:
+    account: 'account-id'
+    region: 'region'
+  codestarConnectionArn: '<codestar-arn>'
+  repo:
+    owner: 'repo-owner'
+    repo: 'repo-name'
+    branch: 'master'
+
+production:
+  env:
+    account: 'account-id'
+    region: 'region'
+  codestarConnectionArn: '<codestar-arn>'
+  repo:
+    owner: 'repo-owner'
+    repo: 'repo-name'
+    branch: 'master'

@@ -1,0 +1,430 @@
+digraph "Diagram" {
+  splines = "ortho";
+  pad = "1.0";
+  nodesep = "0.60";
+  ranksep = "0.75";
+  fontname = "Sans-Serif";
+  fontsize = "15";
+  dpi = "200";
+  rankdir = "BT";
+  compound = "true";
+  fontcolor = "#222222";
+  edge [
+    color = "#D5871488",
+    penwidth = 2,
+    arrowhead = "dot",
+    arrowtail = "dot",
+  ];
+  node [
+    shape = "box",
+    style = "rounded",
+    fixedsize = true,
+    width = 1.7,
+    height = 1.7,
+    labelloc = "c",
+    imagescale = true,
+    fontname = "Sans-Serif",
+    fontsize = 8,
+    margin = 8,
+  ];
+  subgraph "CICDStack" {
+    subgraph "cluster-SubGraph.CICDStack" {
+      graph [
+        label = "CICDStack",
+        labelloc = "b",
+        labeljust = "l",
+        margin = "10",
+        fontsize = "16",
+        penwidth = "2",
+        pencolor = "#888888",
+        style = "filled,rounded",
+        fillcolor = "#e4e4e4",
+      ];
+      "CICDStack/CICDWebhookPipeline" [
+        label = " CICDWebhookPipeline",
+        fontsize = 12,
+        image = "/home/ishan/work/cross-account-cdk-deployment-examples/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_AWS-CodePipeline_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 1.2,
+        height = 1.466,
+      ];
+      subgraph "cluster-SubGraph.CICDPipeline" {
+        graph [
+          label = "CICDPipeline",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#d6d6d6",
+        ];
+        "CICDStack/CICDPipeline/CodeBuildActionRole" [
+          label = " CodeBuildActionRole",
+          fontsize = 12,
+          image = "/home/ishan/work/cross-account-cdk-deployment-examples/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.466,
+        ];
+        "CICDStack/CICDPipeline/UpdatePipeline/SelfMutation" [
+          label = " SelfMutation",
+          fontsize = 12,
+          image = "/home/ishan/work/cross-account-cdk-deployment-examples/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.466,
+        ];
+        subgraph "cluster-SubGraph.Assets" {
+          graph [
+            label = "Assets",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#c7c7c7",
+          ];
+          "CICDStack/CICDPipeline/Assets/FileRole" [
+            label = " FileRole",
+            fontsize = 12,
+            image = "/home/ishan/work/cross-account-cdk-deployment-examples/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "CICDStack/CICDPipeline/Assets/FileAsset1" [
+            label = " FileAsset1",
+            fontsize = 12,
+            image = "/home/ishan/work/cross-account-cdk-deployment-examples/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+        }
+      }
+      subgraph "cluster-SubGraph.Dev" {
+        graph [
+          label = "Dev",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#d6d6d6",
+        ];
+        "CICDStack/Dev/InfraStack" [
+          label = " InfraStack",
+          fontsize = 12,
+        ];
+        subgraph "cluster-SubGraph.SharedStack" {
+          graph [
+            label = "SharedStack",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#c7c7c7",
+          ];
+          "CICDStack/Dev/SharedStack/DeploymentBucket" [
+            label = " DeploymentBucket",
+            fontsize = 12,
+            image = "/home/ishan/work/cross-account-cdk-deployment-examples/node_modules/cdk-dia/icons/aws/Service/Arch_Storage/64/Arch_Amazon-S3-Standard_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.266,
+          ];
+        }
+        subgraph "cluster-SubGraph.PipelineStack" {
+          graph [
+            label = "PipelineStack",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#c7c7c7",
+          ];
+          "CICDStack/Dev/PipelineStack/BuildPublishPipelinedev" [
+            label = "\nBuildPublishPipelined",
+            fontsize = 12,
+            image = "/home/ishan/work/cross-account-cdk-deployment-examples/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_AWS-CodePipeline_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.682,
+          ];
+          "CICDStack/Dev/PipelineStack/PipelineProjectdev" [
+            label = " PipelineProjectdev",
+            fontsize = 12,
+            image = "/home/ishan/work/cross-account-cdk-deployment-examples/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+        }
+      }
+      subgraph "cluster-SubGraph.Staging" {
+        graph [
+          label = "Staging",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#d6d6d6",
+        ];
+        "CICDStack/Staging/InfraStack" [
+          label = " InfraStack",
+          fontsize = 12,
+        ];
+        subgraph "cluster-SubGraph.SharedStack" {
+          graph [
+            label = "SharedStack",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#c7c7c7",
+          ];
+          "CICDStack/Staging/SharedStack/DeploymentBucket" [
+            label = " DeploymentBucket",
+            fontsize = 12,
+            image = "/home/ishan/work/cross-account-cdk-deployment-examples/node_modules/cdk-dia/icons/aws/Service/Arch_Storage/64/Arch_Amazon-S3-Standard_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.266,
+          ];
+        }
+        subgraph "cluster-SubGraph.PipelineStack" {
+          graph [
+            label = "PipelineStack",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#c7c7c7",
+          ];
+          "CICDStack/Staging/PipelineStack/BuildPublishPipelinestaging" [
+            label = "\nBuildPublishPipelines",
+            fontsize = 12,
+            image = "/home/ishan/work/cross-account-cdk-deployment-examples/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_AWS-CodePipeline_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.682,
+          ];
+          "CICDStack/Staging/PipelineStack/PipelineProjectstaging" [
+            label = "\nPipelineProjectstagin",
+            fontsize = 12,
+            image = "/home/ishan/work/cross-account-cdk-deployment-examples/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.682,
+          ];
+        }
+      }
+      subgraph "cluster-SubGraph.Prod" {
+        graph [
+          label = "Prod",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#d6d6d6",
+        ];
+        "CICDStack/Prod/InfraStack" [
+          label = " InfraStack",
+          fontsize = 12,
+        ];
+        subgraph "cluster-SubGraph.SharedStack" {
+          graph [
+            label = "SharedStack",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#c7c7c7",
+          ];
+          "CICDStack/Prod/SharedStack/DeploymentBucket" [
+            label = " DeploymentBucket",
+            fontsize = 12,
+            image = "/home/ishan/work/cross-account-cdk-deployment-examples/node_modules/cdk-dia/icons/aws/Service/Arch_Storage/64/Arch_Amazon-S3-Standard_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.266,
+          ];
+        }
+        subgraph "cluster-SubGraph.PipelineStack" {
+          graph [
+            label = "PipelineStack",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#c7c7c7",
+          ];
+          "CICDStack/Prod/PipelineStack/BuildPublishPipelineproduction" [
+            label = "\nBuildPublishPipelinep",
+            fontsize = 12,
+            image = "/home/ishan/work/cross-account-cdk-deployment-examples/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_AWS-CodePipeline_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.682,
+          ];
+          "CICDStack/Prod/PipelineStack/PipelineProjectproduction" [
+            label = "\nPipelineProjectproduc",
+            fontsize = 12,
+            image = "/home/ishan/work/cross-account-cdk-deployment-examples/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.682,
+          ];
+        }
+      }
+    }
+  }
+  "CICDStack/CICDWebhookPipeline" -> "CICDStack/CICDPipeline/CodeBuildActionRole" [
+    dir = "both",
+  ];
+  "CICDStack/CICDWebhookPipeline" -> "CICDStack/CICDPipeline/UpdatePipeline/SelfMutation" [
+    dir = "both",
+  ];
+  "CICDStack/CICDWebhookPipeline" -> "CICDStack/CICDPipeline/Assets/FileAsset1" [
+    dir = "both",
+  ];
+  "CICDStack/CICDPipeline/CodeBuildActionRole" -> "CICDStack/CICDWebhookPipeline" [
+    dir = "both",
+  ];
+  "CICDStack/CICDPipeline/CodeBuildActionRole" -> "CICDStack/CICDPipeline/UpdatePipeline/SelfMutation" [
+    dir = "both",
+  ];
+  "CICDStack/CICDPipeline/CodeBuildActionRole" -> "CICDStack/CICDPipeline/Assets/FileAsset1" [
+    dir = "both",
+  ];
+  "CICDStack/CICDPipeline/Assets/FileRole" -> "CICDStack/CICDWebhookPipeline" [
+    dir = "both",
+  ];
+  "CICDStack/CICDPipeline/Assets/FileAsset1" -> "CICDStack/CICDWebhookPipeline" [
+    dir = "both",
+  ];
+  "CICDStack/CICDPipeline/Assets/FileAsset1" -> "CICDStack/CICDPipeline/Assets/FileRole" [
+    dir = "both",
+  ];
+  "CICDStack/CICDPipeline/UpdatePipeline/SelfMutation" -> "CICDStack/CICDWebhookPipeline" [
+    dir = "both",
+  ];
+  "CICDStack/Dev/PipelineStack/BuildPublishPipelinedev" -> "CICDStack/Dev/PipelineStack/PipelineProjectdev" [
+    dir = "both",
+  ];
+  "CICDStack/Dev/PipelineStack/PipelineProjectdev" -> "CICDStack/Dev/PipelineStack/BuildPublishPipelinedev" [
+    dir = "both",
+  ];
+  "CICDStack/Staging/PipelineStack/BuildPublishPipelinestaging" -> "CICDStack/Staging/PipelineStack/PipelineProjectstaging" [
+    dir = "both",
+  ];
+  "CICDStack/Staging/PipelineStack/PipelineProjectstaging" -> "CICDStack/Staging/PipelineStack/BuildPublishPipelinestaging" [
+    dir = "both",
+  ];
+  "CICDStack/Prod/PipelineStack/BuildPublishPipelineproduction" -> "CICDStack/Prod/PipelineStack/PipelineProjectproduction" [
+    dir = "both",
+  ];
+  "CICDStack/Prod/PipelineStack/PipelineProjectproduction" -> "CICDStack/Prod/PipelineStack/BuildPublishPipelineproduction" [
+    dir = "both",
+  ];
+}
